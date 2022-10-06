@@ -112,13 +112,12 @@ header {
 
 main {
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
-  width: 935px;
 }
 
 .feed {
   width: 470px;
-  height: 780px;
   border: 1px solid #dbdbdb;
   border-radius: 10px;
   background-color: #fff;
@@ -148,12 +147,14 @@ main {
 }
 
 .feedImgDiv {
+  width: 468px;
+  height: 468px;
   justify-content: center;
 }
 
 .feedImg {
-  width: 468px;
-  height: 468px;
+  max-width: 468px;
+  max-height: 468px;
 }
 
 .feedHeaderMenu {
@@ -214,6 +215,8 @@ main {
 .commentP {
   line-height: 0.8em;
   font-size: 14px;
+  display: flex;
+  gap: 5px;
 }
 
 .commentList p {
@@ -226,7 +229,6 @@ main {
 
 .tag {
   color: #00376b;
-  margin-right: 3px;
 }
 
 .writeDate {
@@ -239,23 +241,18 @@ main {
   justify-content: space-between;
 }
 
-.addCommentLogoAndInput {
-  width: 50px;
-}
-
 .smile {
   width: 23px;
   height: 23px;
-  margin: 13px 10px 0 10px;
+  margin: 5px 10px 0 10px;
 }
 
-#commentInput {
+.commentInput {
   border: none;
-  margin-top: 10px;
   width: 375px;
 }
 
-#commentInput:focus {
+.commentInput:focus {
   outline: none;
 }
 
@@ -266,5 +263,5 @@ main {
   font-size: 14px;
   font-weight: 700;
   margin-right: 10px;
-  margin-top: 10px;
+  cursor: pointer;
 }
