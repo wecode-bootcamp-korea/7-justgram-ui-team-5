@@ -10,6 +10,7 @@ body {
   background-color: #fafafa;
 }
 
+/* 페이지 상단 헤더 */
 header {
   width: 100%;
   height: 60px;
@@ -34,6 +35,7 @@ header {
   background-size: cover;
 }
 
+/* 헤더 왼쪽 아이콘과 로고 부분 */
 #headerLeft {
   display: flex;
   justify-content: space-around;
@@ -56,6 +58,7 @@ header {
   font-size: 20px;
 }
 
+/* 검색창 */
 #searchInput {
   background-color: #efefef;
   width: 200px;
@@ -72,6 +75,11 @@ header {
   background-position: left 38% top 50%;
 }
 
+#searchInput:focus {
+  outline: none;
+}
+
+/* 헤더 오른쪽 부분 아이콘 */
 #headerRight {
   display: flex;
 }
@@ -97,12 +105,15 @@ header {
 
 /* feed */
 
-main {
+.alignCenter {
   display: flex;
+  align-items: center;
+}
+
+main {
   flex-direction: column;
   gap: 20px;
   width: 935px;
-  align-items: center;
 }
 
 .feed {
@@ -120,14 +131,7 @@ main {
 }
 
 .profileDiv {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-.user {
-  display: flex;
-  align-items: center;
 }
 
 .profileImg {
@@ -141,6 +145,10 @@ main {
   margin-top: 5px;
   font-size: 12px;
   font-weight: 700;
+}
+
+.feedImgDiv {
+  justify-content: center;
 }
 
 .feedImg {
@@ -168,17 +176,13 @@ main {
 }
 
 #feedLeft {
-  display: flex;
   justify-content: center;
-  align-items: center;
   gap: 10px;
   margin-left: 10px;
 }
 
 #feedRight {
-  display: flex;
   justify-content: center;
-  align-items: center;
   gap: 10px;
   margin-right: 10px;
 }
@@ -212,8 +216,7 @@ main {
   font-size: 14px;
 }
 
-.firstComments p {
-  margin-top: 10px;
+.commentList p {
   line-height: 0.5em;
 }
 
@@ -222,7 +225,8 @@ main {
 }
 
 .tag {
-  color: #52376b;
+  color: #00376b;
+  margin-right: 3px;
 }
 
 .writeDate {
@@ -232,14 +236,10 @@ main {
 /* add Comment */
 .addComment {
   border-top: 1px solid #dbdbdb;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
 .addCommentLogoAndInput {
-  display: flex;
-  align-items: center;
   width: 50px;
 }
 
@@ -252,7 +252,7 @@ main {
 #commentInput {
   border: none;
   margin-top: 10px;
-  width: 350px;
+  width: 375px;
 }
 
 #commentInput:focus {
