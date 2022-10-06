@@ -7,6 +7,7 @@
 body {
   width: 100%;
   margin: 0;
+  background-color: #fafafa;
 }
 
 header {
@@ -16,12 +17,14 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  margin-bottom: 50px;
 }
 
 #headerMain {
   width: 935px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -90,4 +93,178 @@ header {
   background: url("https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png")
     no-repeat;
   background-size: cover;
+}
+
+/* feed */
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 935px;
+  align-items: center;
+}
+
+.feed {
+  width: 470px;
+  height: 780px;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.feedHeader {
+  width: 468px;
+  height: 48px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.profileDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.profileImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 10px 10px 0 10px;
+}
+
+.userName {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.feedImg {
+  width: 468px;
+  height: 468px;
+}
+
+.feedHeaderMenu {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.feedHeaderMenuImg {
+  width: 20px;
+  height: 20px;
+}
+
+.feedMenu {
+  width: 468px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#feedLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+#feedRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.feedIcon {
+  width: 25px;
+  height: 25px;
+}
+
+/* 댓글 */
+.comment {
+  padding: 15px;
+  padding-top: 0;
+}
+
+.countLikes {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.writer {
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.commentP {
+  line-height: 0.8em;
+  font-size: 14px;
+}
+
+.firstComments p {
+  margin-top: 10px;
+  line-height: 0.5em;
+}
+
+.grayFont {
+  color: #8e8e8e;
+}
+
+.tag {
+  color: #52376b;
+}
+
+.writeDate {
+  font-size: 10px;
+}
+
+/* add Comment */
+.addComment {
+  border-top: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addCommentLogoAndInput {
+  display: flex;
+  align-items: center;
+  width: 50px;
+}
+
+.smile {
+  width: 23px;
+  height: 23px;
+  margin: 13px 10px 0 10px;
+}
+
+#commentInput {
+  border: none;
+  margin-top: 10px;
+  width: 350px;
+}
+
+#commentInput:focus {
+  outline: none;
+}
+
+.addBtn {
+  border: none;
+  background-color: #fff;
+  color: #e6f4fe;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 10px;
+  margin-top: 10px;
 }
