@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/login.css" />
+    <title>Justgram</title>
+  </head>
+  <body>
+    <div class="border">
+      <a href="" id="logo" class="flex_center">Justgram</a>
+      <div id="login_wrap" class="flex_center">
+        <div id="login_input">
+          <input id="id_input" type="text" placeholder="전화번호, 사용자 이름 또는 이메일" name="user_id" class="login_input login_border" />
+        </div>
+        <div>
+          <input id="psw_input" type="password" placeholder="비밀번호" name="user_password" class="login_input login_border">
+        </div>
+        <div class="login_btn">
+          <button id="login_btn" type="submit">로그인</button>
+        </div>
+      </div>
+      <div id="forgot_wrap" class="flex_center">
+        <a id="forgot_pw" href="">비밀번호를 잊으셨나요?</a> 
+      </div>
+    </div>
+
+  </body>
+  <script src="js/login.js"></script>
+</html>
