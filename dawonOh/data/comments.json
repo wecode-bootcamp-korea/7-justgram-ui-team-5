@@ -1,0 +1,21 @@
+[
+  {
+    "writer": "tester_1",
+    "comment": "안녕하세요"
+  },
+
+  {
+    "writer": "tester_2",
+    "comment": "감사해요"
+  },
+
+  {
+    "writer": "tester_3",
+    "comment": "잘있어요"
+  },
+
+  {
+    "writer": "tester_4",
+    "comment": "다시 만나요"
+  }
+]
