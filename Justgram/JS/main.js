@@ -10,7 +10,7 @@ commentPArray.forEach((p, index) => {
     const inputText = commentInput[index];
     const comment = commentMainFour[index];
 
-    updateCommentListDom(inputText, comment, 'yezee-e');
+    updateCommentListDom(inputText.value, comment, 'yezee-e');
   });
 });
 
@@ -21,14 +21,45 @@ commentInputArray.forEach((p, index) => {
       event.preventDefault();
       const inputText = commentInput[index];
       const comment = commentMainFour[index];
-      updateCommentListDom(inputText, comment, 'yezee-e');
+      updateCommentListDom(inputText.value, comment, 'yezee-e');
     } else if ((event.value = ' ')) {
       //공란일 경우 댓글업로드 막기
     }
   });
 });
 
-function updateCommentListDom(inputText, comment, writer) {
+//fetch
+const getCommentList = () => {
+  fetch('./data/commentList.json')
+    .then((res) => res.json())
+    .then((json) => {
+      json.forEach((json, index) => {
+        const commentArea = commentMainFour[index];
+
+        // const content = json.content;
+        // console.log(content);
+        // const commentList = document.createElement('div');
+        // commentList.classList.add('main-four__state__chat');
+
+        // const nicknameSpan = document.createElement('span'); //bold한 아이디
+        // nicknameSpan.classList.add('bold');
+        // nicknameSpan.innerText = comment.nickname;
+
+        // const contentSpan = document.createElement('span'); //input text내용
+        // contentSpan.innerText = comment.content;
+
+        // commentList.append(nicknameSpan, contentSpan);
+        // console.log(commentList);
+
+        // commentArea.append(commentList);
+        updateCommentListDom(json.content, commentArea, json.nickname);
+      });
+    });
+};
+
+getCommentList();
+
+function updateCommentListDom(value, comment, writer) {
   const commentChat = document.createElement('div');
   commentChat.classList.add('main-four__state__chat'); //<div class="main-four__state__chat"></div>
 
@@ -37,37 +68,8 @@ function updateCommentListDom(inputText, comment, writer) {
   nicknameSpan.textContent = writer;
 
   const contentSpan = document.createElement('span'); //input text내용
-  contentSpan.innerText = inputText.value;
+  contentSpan.innerText = value;
 
   commentChat.append(nicknameSpan, contentSpan); //comentMent에 아이디 text내용 넣고
   comment.append(commentChat); //댓글란에 집어 넣는다
-  inputText.value = '';
 }
-
-//fetch
-const getCommentList = () => {
-  fetch('./data/commentList.json')
-    .then((res) => res.json())
-    .then((json) => {
-      json.forEach((comment, index) => {
-        const commentArea = commentMainFour[index];
-
-        const commentList = document.createElement('div');
-        commentList.classList.add('main-four__state__chat');
-
-        const nicknameSpan = document.createElement('span'); //bold한 아이디
-        nicknameSpan.classList.add('bold');
-        nicknameSpan.innerText = comment.nickname;
-
-        const contentSpan = document.createElement('span'); //input text내용
-        contentSpan.innerText = comment.content;
-
-        commentList.append(nicknameSpan, contentSpan);
-        console.log(commentList);
-
-        commentArea.append(commentList);
-      });
-    });
-};
-
-getCommentList();
