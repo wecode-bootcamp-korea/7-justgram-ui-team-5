@@ -6,24 +6,29 @@ const commentInputArray = Array.from(commentInput); //foreach로 enter이벤트�
 
 //게시버튼 클릭으로 댓글입력
 commentPArray.forEach((p, index) => {
-  p.addEventListener('click', () => {
+  p.addEventListener('click', (event) => {
     const inputText = commentInput[index];
     const comment = commentMainFour[index];
-
-    updateCommentListDom(inputText.value, comment, 'yezee-e');
+    if (inputText.value == '') {
+      event.preventDefault(); //input이 공란이면 댓글못달게 막기
+    } else {
+      updateCommentListDom(inputText.value, comment, 'yezee-e');
+      inputText.value = '';
+    }
   });
 });
 
 //input창에 enter로 댓글입력
 commentInputArray.forEach((p, index) => {
-  p.addEventListener('keydown', (event) => {
-    if (event.keyCode == '13') {
-      event.preventDefault();
+  p.addEventListener('keyup', (event) => {
+    const inputText = commentInput[index];
+    if (inputText.value == '') {
+      event.preventDefault(); //input이 공란이면 댓글못달게 막기
+    } else if (event.keyCode == '13') {
       const inputText = commentInput[index];
       const comment = commentMainFour[index];
       updateCommentListDom(inputText.value, comment, 'yezee-e');
-    } else if ((event.value = ' ')) {
-      //공란일 경우 댓글업로드 막기
+      inputText.value = '';
     }
   });
 });
@@ -35,23 +40,6 @@ const getCommentList = () => {
     .then((json) => {
       json.forEach((json, index) => {
         const commentArea = commentMainFour[index];
-
-        // const content = json.content;
-        // console.log(content);
-        // const commentList = document.createElement('div');
-        // commentList.classList.add('main-four__state__chat');
-
-        // const nicknameSpan = document.createElement('span'); //bold한 아이디
-        // nicknameSpan.classList.add('bold');
-        // nicknameSpan.innerText = comment.nickname;
-
-        // const contentSpan = document.createElement('span'); //input text내용
-        // contentSpan.innerText = comment.content;
-
-        // commentList.append(nicknameSpan, contentSpan);
-        // console.log(commentList);
-
-        // commentArea.append(commentList);
         updateCommentListDom(json.content, commentArea, json.nickname);
       });
     });
