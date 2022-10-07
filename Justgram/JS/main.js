@@ -10,19 +10,7 @@ commentPArray.forEach((p, index) => {
     const inputText = commentInput[index];
     const comment = commentMainFour[index];
 
-    const commentChat = document.createElement('div');
-    commentChat.classList.add('main-four__state__chat'); //<div class="main-four__state__chat"></div>
-
-    const nicknameSpan = document.createElement('span'); //bold한 아이디
-    nicknameSpan.classList.add('bold');
-    nicknameSpan.textContent = 'yezee-e';
-
-    const contentSpan = document.createElement('span'); //input text내용
-    contentSpan.innerText = inputText.value;
-
-    commentChat.append(nicknameSpan, contentSpan); //comentMent에 아이디 text내용 넣고
-    comment.append(commentChat); //댓글란에 집어 넣는다
-    comment.value = '';
+    updateCommentListDom(inputText, comment, 'yezee-e');
   });
 });
 
@@ -33,25 +21,28 @@ commentInputArray.forEach((p, index) => {
       event.preventDefault();
       const inputText = commentInput[index];
       const comment = commentMainFour[index];
-
-      const commentChat = document.createElement('div');
-      commentChat.classList.add('main-four__state__chat'); //<div class="main-four__state__chat"></div>
-
-      const nicknameSpan = document.createElement('span'); //bold한 아이디
-      nicknameSpan.classList.add('bold');
-      nicknameSpan.textContent = 'yezee-e';
-
-      const contentSpan = document.createElement('span'); //input text내용
-      contentSpan.innerText = inputText.value;
-
-      commentChat.append(nicknameSpan, contentSpan); //comentMent에 아이디 text내용 넣고
-      comment.append(commentChat); //댓글란에 집어 넣는다
-      inputText.value = '';
+      updateCommentListDom(inputText, comment, 'yezee-e');
     } else if ((event.value = ' ')) {
       //공란일 경우 댓글업로드 막기
     }
   });
 });
+
+function updateCommentListDom(inputText, comment, writer) {
+  const commentChat = document.createElement('div');
+  commentChat.classList.add('main-four__state__chat'); //<div class="main-four__state__chat"></div>
+
+  const nicknameSpan = document.createElement('span'); //bold한 아이디
+  nicknameSpan.classList.add('bold');
+  nicknameSpan.textContent = writer;
+
+  const contentSpan = document.createElement('span'); //input text내용
+  contentSpan.innerText = inputText.value;
+
+  commentChat.append(nicknameSpan, contentSpan); //comentMent에 아이디 text내용 넣고
+  comment.append(commentChat); //댓글란에 집어 넣는다
+  inputText.value = '';
+}
 
 //fetch
 const getCommentList = () => {
