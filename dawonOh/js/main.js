@@ -8,23 +8,28 @@ addbtnArr.forEach(function (button, index) {
 
     const commentList = document.getElementsByClassName("commentList")[index];
 
-    const writer = document.createElement("span");
-    writer.className = "writer";
-    writer.textContent = "dawon_Oh";
+    if (input.value.replace(/ /g, "") != "") {
+      const writer = document.createElement("span");
+      writer.className = "writer";
+      writer.textContent = "dawon_Oh";
 
-    const commentP = document.createElement("p");
-    commentP.className = "commentP";
+      const commentP = document.createElement("p");
+      commentP.className = "commentP";
 
-    const content = document.createElement("span");
-    content.className = "content";
+      const content = document.createElement("span");
+      content.className = "content";
 
-    content.textContent = input.value;
+      content.textContent = input.value;
 
-    commentP.append(writer, content);
-    console.log(commentP);
-    commentList.append(commentP);
+      commentP.append(writer, content);
+      console.log(commentP);
+      commentList.append(commentP);
 
-    input.value = "";
+      input.value = "";
+    } else if (input.value.replace(/ /g, "") === "") {
+      input.value = "";
+      input.focus();
+    }
   });
 });
 
